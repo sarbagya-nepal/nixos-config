@@ -22,5 +22,6 @@
     nodejs
     unzip
     yarn
+    matugen
   ];
 }

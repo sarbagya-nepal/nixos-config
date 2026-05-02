@@ -15,8 +15,8 @@
       la = "eza -la --color=always --group-directories-first --icons";
       ls = "eza -a --color=always --group-directories-first --icons";
       l = "eza --color=always --group-directories-first --icons";
-      nrs = "sudo nixos-rebuild switch --flake ~/nixos-config#nixos";
-      nrt = "sudo nixos-rebuild test --flake ~/nixos-config#nixos";
+      nrs = "sudo nixos-rebuild switch --flake ~/nixos-config#nixos --impure";
+      nrt = "sudo nixos-rebuild test --flake ~/nixos-config#nixos --impure";
       ":q" = "exit";
       ":wq" = "exit";
       ff = "fastfetch";

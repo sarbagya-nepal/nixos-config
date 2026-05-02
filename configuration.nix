@@ -1,29 +1,28 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ./hardware-configuration.nix
-    ];
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+  ];
 
-# Bootloader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
 
-# Enable networking
+  # Enable networking
   networking.networkmanager.enable = true;
 
-# Set your time zone.
+  # Set your time zone.
   time.timeZone = "Asia/Kathmandu";
 
-# Select internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   services.xserver.enable = false;
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
 
   hardware.bluetooth = {
@@ -31,14 +30,13 @@
     powerOnBoot = true;
   };
 
-
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
   boot.kernelParams = [
-  "acpi_backlight=video"
+    "acpi_backlight=video"
   ];
 
   hardware.nvidia = {
@@ -53,10 +51,10 @@
     };
   };
 
-# Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
 
-# Enable sound with pipewire.
+  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -69,11 +67,14 @@
   users.users.chain = {
     isNormalUser = true;
     description = "Sarbagya Nepal";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
 
-# automatic update
+  # automatic update
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
@@ -81,7 +82,7 @@
     dates = "daily";
   };
 
-#garbage collector
+  #garbage collector
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -90,10 +91,10 @@
 
   nix.optimise = {
     automatic = true;
-    dates = ["weekly"];
+    dates = [ "weekly" ];
   };
 
-# Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   services.displayManager.ly.enable = true;
@@ -118,7 +119,10 @@
     wl-clipboard
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.auto-optimise-store = true;
 
   system.stateVersion = "25.11";

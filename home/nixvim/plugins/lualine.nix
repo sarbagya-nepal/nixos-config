@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         options = {
-          theme = "tokyonight";
+          theme = "auto";
           globalstatus = true;
         };
         sections = {

@@ -17,11 +17,15 @@
     gnumake
     yazi
     quickshell
-    kitty
     hyprshot
     nodejs
     unzip
     yarn
     matugen
+    waybar
+    lz4
+    nautilus
+    qt6.qtwayland
+    python3
   ];
 }

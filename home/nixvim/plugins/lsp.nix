@@ -18,7 +18,11 @@
       ts_ls.enable = true;
       html = {
         enable = true;
-        filetypes = [ "html" "htmldjango" "jinja" ];
+        filetypes = [
+          "html"
+          "htmldjango"
+          "jinja"
+        ];
       };
       cssls.enable = true;
       jsonls.enable = true;

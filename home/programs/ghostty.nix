@@ -14,7 +14,7 @@
 
       scrollbar = "never";
 
-      background-opacity = 0.95;
+      background-opacity = 0.9;
 
       config-file = "~/.cache/matugen/ghostty-colors";
 

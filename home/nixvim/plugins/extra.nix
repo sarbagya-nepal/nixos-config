@@ -5,7 +5,7 @@
       lastplace = {
         enable = true;
       };
-      notify = {
+      gitsigns = {
         enable = true;
       };
     };

@@ -4,10 +4,10 @@
   imports = [
     inputs.nixvim.homeModules.nixvim
 
-      ./globals.nix
-      ./keymaps.nix
-      ./options.nix
-      ./plugins
+    ./globals.nix
+    ./keymaps.nix
+    ./options.nix
+    ./plugins
   ];
 
   programs.nixvim = {
@@ -16,5 +16,8 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    extraConfigLua = ''
+      require('vim._core.ui2').enable({})
+    '';
   };
 }

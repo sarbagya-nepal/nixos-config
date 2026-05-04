@@ -8,7 +8,6 @@
     playerctl
     brightnessctl
     papirus-icon-theme
-    qutebrowser
     awww
     rofi
     ghostty
@@ -27,5 +26,8 @@
     nautilus
     qt6.qtwayland
     python3
+    spotify
+    nwg-look
+    pywalfox-native
   ];
 }

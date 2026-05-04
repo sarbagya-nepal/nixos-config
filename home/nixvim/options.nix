@@ -59,6 +59,7 @@
     # EXTRA LUA
     extraConfigLua = ''
       vim.opt.iskeyword:append("-")
+      vim.opt.fcs = { eob = " " }
       -- vim.diagnostic.config({
       --
       --   virtual_text = {

@@ -8,7 +8,6 @@
     ./theme.nix
     ./colorizer.nix
     ./snacks.nix
-    ./lualine.nix
     ./bufferline.nix
 
     ./oil.nix

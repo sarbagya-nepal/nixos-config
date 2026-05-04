@@ -28,7 +28,7 @@
       jsonls.enable = true;
       tailwindcss.enable = true;
       emmet_language_server.enable = true;
-      nixd.enable = true;
+      # nixd.enable = true;
       qmlls = {
         enable = true;
         cmd = [ "qmlls" ];

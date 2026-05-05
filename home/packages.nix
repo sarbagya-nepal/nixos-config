@@ -28,7 +28,6 @@
     python3
     spotify
     nwg-look
-    pywalfox-native
     spicetify-cli
   ];
 }

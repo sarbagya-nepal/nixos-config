@@ -29,5 +29,6 @@
     spotify
     nwg-look
     pywalfox-native
+    spicetify-cli
   ];
 }

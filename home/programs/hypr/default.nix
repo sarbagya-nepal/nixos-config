@@ -18,7 +18,8 @@
       exec-once = [
         "qs"
         "awww-daemon"
-        "awww img ~/Pictures/wallpapers/a_planet_in_the_sky.jpg"
+        "awww img ~/Pictures/wallpapers/raiden.png"
+        "qs"
       ];
 
       env = [
@@ -28,7 +29,7 @@
 
       general = {
         gaps_in = 5;
-        gaps_out = 5;
+        gaps_out = 20;
         border_size = 0;
         "col.active_border" = "rgb(8a9a7b)";
         "col.inactive_border" = "rgb(090e13)";

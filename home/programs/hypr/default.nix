@@ -83,9 +83,9 @@
           "layersOut,1,1.50,linear,fade"
           "fadeLayersIn,1,1.79,almostLinear"
           "fadeLayersOut,1,1.39,almostLinear"
-          "workspaces,1,1.50,easeOutQuint,slidevert"
-          "workspacesIn,1,1.30,easeOutQuint,slidevert"
-          "workspacesOut,1,1.30,easeOutQuint,slidevert"
+          "workspaces,1,1.50,easeOutQuint,slide"
+          "workspacesIn,1,1.30,easeOutQuint,slide"
+          "workspacesOut,1,1.30,easeOutQuint,slide"
         ];
       };
 
@@ -112,8 +112,8 @@
       };
 
       gesture = [
-        "3, vertical, workspace"
-        "4, vertical, workspace"
+        "3, horizontal, workspace"
+        "4, horizontal, workspace"
       ];
 
       device = {

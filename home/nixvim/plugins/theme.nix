@@ -7,10 +7,10 @@
         default_scheme = "base16-brewer",
         ui = { transparent = true },
         highlights = {
-          overrides = function(palete)
-          return {
-            StatusLine = { bg = "NONE" }
-          }
+          overrides = function(palette)
+            return {
+              StatusLine = { bg = "NONE" },
+            }
           end,
         },
       })

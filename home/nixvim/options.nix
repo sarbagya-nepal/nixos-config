@@ -60,28 +60,28 @@
     extraConfigLua = ''
       vim.opt.iskeyword:append("-")
       vim.opt.fcs = { eob = " " }
-      -- vim.diagnostic.config({
-      --
-      --   virtual_text = {
-      --     prefix = "●",  -- small dot before virtual text
-      --     spacing = 2,
-      --     source = "if_many";
-      --   },
-      --   virtual_lines = false;
-      --   underline = true,
-      --   signs = {
-      --     active = true,  -- ensure sign column uses your icons
-      --     text = {
-      --       [vim.diagnostic.severity.ERROR] = "",
-      --       [vim.diagnostic.severity.WARN]  = "",
-      --       [vim.diagnostic.severity.INFO]  = "",
-      --       [vim.diagnostic.severity.HINT]  = "",
-      --     },
-      --   },
-      --   float = { border = "rounded" },
-      --   update_in_insert = false,
-      --   severity_sort = true,
-      -- })
+      vim.diagnostic.config({
+
+        virtual_text = {
+          prefix = "●",  -- small dot before virtual text
+          spacing = 2,
+          source = "if_many";
+        },
+        virtual_lines = false;
+        underline = true,
+        signs = {
+          active = true,  -- ensure sign column uses your icons
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.INFO]  = "",
+            [vim.diagnostic.severity.HINT]  = "",
+          },
+        },
+        float = { border = "rounded" },
+        update_in_insert = false,
+        severity_sort = true,
+      })
     '';
   };
 }

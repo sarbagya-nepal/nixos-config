@@ -5,6 +5,7 @@
     ./packages.nix
     ./fonts.nix
     ./shell.nix
+    ./cursor.nix
     ./nixvim
     ./programs
   ];

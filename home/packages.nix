@@ -20,8 +20,6 @@
     nodejs
     unzip
     yarn
-    matugen
-    waybar
     lz4
     nautilus
     qt6.qtwayland

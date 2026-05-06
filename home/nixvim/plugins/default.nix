@@ -4,6 +4,7 @@
   imports = [
     ./extra.nix
     ./autoclose.nix
+    ./alpha.nix
 
     ./theme.nix
     ./colorizer.nix

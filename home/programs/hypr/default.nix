@@ -5,31 +5,29 @@
     enable = true;
 
     settings = {
-      monitor = ",1920x1080@144,auto,1";
+      monitor = ",1920x1080@144,auto,1.2";
 
       xwayland = {
         force_zero_scaling = true;
       };
 
       "$terminal" = "ghostty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "nautilus";
       "$menu" = "rofi -show drun";
 
       exec-once = [
         "qs"
-        "awww-daemon"
-        "awww img ~/Pictures/wallpapers/raiden.png"
-        "qs"
+        "hyprctl setcursor Bibata-Modern-Classic 20"
       ];
 
       env = [
-        "XCURSOR_SIZE,12"
-        "HYPRCURSOR_SIZE,12"
+        "XCURSOR_SIZE,20"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
       ];
 
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 5;
         border_size = 0;
         "col.active_border" = "rgb(7199ee)";
         "col.inactive_border" = "rgb(0c0d15)";
@@ -39,16 +37,16 @@
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 15;
         rounding_power = 5;
         active_opacity = 1;
         inactive_opacity = 0.9;
 
         shadow = {
           enabled = false;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+          range = 10;
+          render_power = 5;
+          color = "rgb(000000)";
         };
 
         blur = {
@@ -147,12 +145,20 @@
         "$mainMod, 3, workspace, 3"
         "$mainMod, 4, workspace, 4"
         "$mainMod, 5, workspace, 5"
+        "$mainMod, 6, workspace, 6"
+        "$mainMod, 7, workspace, 7"
+        "$mainMod, 8, workspace, 8"
+        "$mainMod, 9, workspace, 9"
 
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
         "$mainMod SHIFT, 4, movetoworkspace, 4"
         "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
 
         "$mainMod, 0, togglespecialworkspace, magic"
         "$mainMod SHIFT, 0, movetoworkspace, special:magic"

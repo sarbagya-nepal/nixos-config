@@ -1,74 +1,151 @@
 { config, lib, pkgs, ... }:
 
 {
-  plugins.alpha = {
-    enable = true;
-    
-    # Optional: lazy-load alpha on VimEnter
-    # lazyLoad.settings.event = "VimEnter";
+  programs.nixvim = {
+    plugins.alpha = {
+      enable = true;
 
-    # Use raw Lua for the full alpha dashboard configuration
-    luaConfig = lib.mkDefault ''
-      local alpha = require("alpha")
-      local dashboard = require("alpha.themes.dashboard")
+      settings = {
 
-      -- ASCII header art
-      dashboard.section.header.val = {
-        [[                               __                ]],
-        [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-        [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-        [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-        [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-        [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-      }
+        layout = [
+          {
+            type = "padding";
+            val = 2;
+          }
+          {
+            type = "text";
+            val = [
+              "                                   "
+              "                                   "
+              "                                   "
+              "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          "
+              "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       "
+              "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     "
+              "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    "
+              "          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   "
+              "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  "
+              "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   "
+              " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  "
+              " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ "
+              "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     "
+              "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     "
+              "                                   "
+            ];
+            opts = {
+              position = "center";
+              hl = "AlphaHeader";
+            };
+          }
+          {
+            type = "padding";
+            val = 2;
+          }
+          {
+            type = "group";
+            val = [
+              {
+                type = "button";
+                val = "  Find file";
+                on_press.raw = "function() require('telescope.builtin').find_files() end";
+                opts = {
+                  keymap = [ "n" "f" ":Telescope find_files <CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "f";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+              {
+                type = "button";
+                val = "  New file";
+                on_press.raw = "function() vim.cmd('ene | startinsert') end";
+                opts = {
+                  keymap = [ "n" "e" ":ene <BAR> startinsert <CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "e";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+              {
+                type = "button";
+                val = "  Recent files";
+                on_press.raw = "function() require('telescope.builtin').oldfiles() end";
+                opts = {
+                  keymap = [ "n" "r" ":Telescope oldfiles <CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "r";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+              {
+                type = "button";
+                val = "  Find text";
+                on_press.raw = "function() require('telescope.builtin').live_grep() end";
+                opts = {
+                  keymap = [ "n" "g" ":Telescope live_grep <CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "g";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+              {
+                type = "button";
+                val = "  Config";
+                opts = {
+                  keymap = [ "n" "c" ":e ~/nixos-config/home/nixvim/plugins/ <CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "c";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+              {
+                type = "button";
+                val = "  Quit";
+                on_press.raw = "function() vim.cmd('qa') end";
+                opts = {
+                  keymap = [ "n" "q" ":qa<CR>" { noremap = true; silent = true; nowait = true; } ];
+                  shortcut = "q";
+                  position = "center";
+                  cursor = 3;
+                  width = 50;
+                  align_shortcut = "right";
+                  hl_shortcut = "Keyword";
+                };
+              }
+            ];
+          }
+          {
+            type = "padding";
+            val = 1;
+          }
+          {
+            type = "text";
+            val = "  Don't Stop Until You are Proud...";
+            opts = {
+              position = "center";
+              hl = "Type";
+            };
+          }
+        ];
 
-      -- Menu buttons
-      dashboard.section.buttons.val = {
-        dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-        dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("r", "  Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", "  Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("c", "  Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("q", "  Quit", ":qa<CR>"),
-      }
-
-      -- Footer with dynamic info
-      local function footer()
-        local stats = require("lazy").stats()
-        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        return "  Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
-      end
-
-      dashboard.section.footer.val = footer()
-      dashboard.section.footer.opts.hl = "Comment"
-
-      -- Highlight groups
-      dashboard.section.header.opts.hl = "AlphaHeader"
-      dashboard.section.buttons.opts.hl = "AlphaButtons"
-
-      -- Layout
-      dashboard.config.layout = {
-        { type = "padding", val = 2 },
-        dashboard.section.header,
-        { type = "padding", val = 2 },
-        dashboard.section.buttons,
-        { type = "padding", val = 1 },
-        dashboard.section.footer,
-      }
-
-      dashboard.opts.opts.noautocmd = true
-      alpha.setup(dashboard.config)
-    '';
-  };
-
-  # Optional: define highlight groups for the dashboard
-  highlight = {
-    AlphaHeader = {
-      fg = "#7aa2f7";
-      bold = true;
-    };
-    AlphaButtons = {
-      fg = "#c0caf5";
+        opts = {
+          noautocmd = true;
+        };
+      };
     };
   };
 }

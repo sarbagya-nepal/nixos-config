@@ -18,7 +18,7 @@
 
       # Theme (inlined)
       palette = [
-        "0=#06080a"
+        "0=#0c0d15"
         "1=#ee6d85"
         "2=#95c561"
         "3=#d7a65f"

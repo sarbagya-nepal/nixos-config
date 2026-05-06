@@ -31,8 +31,8 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 0;
-        "col.active_border" = "rgb(8a9a7b)";
-        "col.inactive_border" = "rgb(090e13)";
+        "col.active_border" = "rgb(7199ee)";
+        "col.inactive_border" = "rgb(0c0d15)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "master";
@@ -41,7 +41,7 @@
       decoration = {
         rounding = 10;
         rounding_power = 5;
-        active_opacity = 1.0;
+        active_opacity = 1;
         inactive_opacity = 0.9;
 
         shadow = {

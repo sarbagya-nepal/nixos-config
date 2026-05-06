@@ -26,8 +26,6 @@
     nautilus
     qt6.qtwayland
     python3
-    spotify
     nwg-look
-    spicetify-cli
   ];
 }

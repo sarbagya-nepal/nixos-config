@@ -1,25 +1,46 @@
 { inputs, pkgs, ... }:
 
-{
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
+  {
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   programs.spicetify = {
     enable = true;
-
     spotifyPackage = pkgs.spotify;
+    theme = spicePkgs.themes.text;
+    colorScheme = "custom";
 
-    enabledExtensions = with inputs.spicetify-nix.extensions; [
-      fullAppDisplay
-      shuffle
-    ];
+    customColorScheme = {
+      main               = "0c0d15";
+      text               = "a0a8cd";
+      subtext            = "565f89";
 
-    enabledCustomApps = with inputs.spicetify-nix.apps; [
+      accent             = "7199ee";
+      accent-active      = "7199ee";
+      accent-inactive    = "212234";
+
+      highlight          = "06080a";
+      banner             = "ee6d85";
+
+      border-active      = "a0a8cd";
+      border-inactive    = "212234";
+
+      header             = "a485dd";
+
+      notification       = "38a89d";
+      notification-error = "ee6d85";
+    };
+
+    enabledCustomApps = with spicePkgs.apps; [
       marketplace
     ];
 
-    theme = inputs.spicetify-nix.themes.dribbblish;
-    colorScheme = "Custom";
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      fullAppDisplay
+      shuffle
+    ];
   };
 }

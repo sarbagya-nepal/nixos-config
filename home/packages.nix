@@ -27,5 +27,6 @@
     qt6.qtwayland
     python3
     nwg-look
+    tokyonight-gtk-theme
   ];
 }

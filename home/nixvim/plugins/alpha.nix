@@ -134,7 +134,7 @@
           }
           {
             type = "text";
-            val = "  Don't Stop Until You are Proud...";
+            val = "  Power to the people.";
             opts = {
               position = "center";
               hl = "Type";

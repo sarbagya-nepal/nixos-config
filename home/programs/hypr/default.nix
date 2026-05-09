@@ -26,34 +26,35 @@
       ];
 
       general = {
-        gaps_in = 5;
-        gaps_out = 5;
-        border_size = 0;
-        "col.active_border" = "rgb(7199ee)";
-        "col.inactive_border" = "rgb(0c0d15)";
+        gaps_in = 7;
+        gaps_out = 10;
+        border_size = 1;
+        "col.active_border" = "rgb(7d8fa6)";
+        "col.inactive_border" = "rgba(d7d0c7dd)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "master";
       };
 
       decoration = {
-        rounding = 15;
-        rounding_power = 5;
-        active_opacity = 1;
-        inactive_opacity = 0.9;
+        rounding = 30;
+        rounding_power = 1;
+        active_opacity = 0.9;
+        inactive_opacity = 0.85;
 
-        shadow = {
-          enabled = false;
-          range = 10;
-          render_power = 5;
-          color = "rgb(000000)";
-        };
+          shadow = {
+              enabled = true;
+              range = 10;
+              render_power = 2;
+              color = "rgba(0000002e)";
+          };
 
         blur = {
           enabled = true;
-          size = 5;
+          size = 10;
           passes = 3;
-          vibrancy = 0.1696;
+          vibrancy = 0.2;
+          brightness = 0.65;
         };
       };
 

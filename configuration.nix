@@ -99,7 +99,6 @@
 
   services.displayManager.ly.enable = true;
 
-  programs.firefox.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

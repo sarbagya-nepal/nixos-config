@@ -9,9 +9,6 @@
 
       logo = {
         source = "nixos_small";
-        padding = {
-          top = 1;
-        };
       };
 
       display = {
@@ -19,7 +16,6 @@
       };
 
       modules = [
-        "break"
         "title"
 
         {

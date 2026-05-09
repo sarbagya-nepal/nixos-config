@@ -42,6 +42,7 @@
     ];
 
     initContent = ''
+      export TERMINAL=ghostty
       # completion styling
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
       zstyle ':completion:*' menu select

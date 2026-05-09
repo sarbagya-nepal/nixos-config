@@ -3,29 +3,27 @@
   programs.nixvim = {
     enable = true;
 
-    extraPlugins = [
-      pkgs.vimPlugins.tokyodark-nvim
-    ];
+    colorschemes = {
+      melange.enable = false;
+    };
 
     extraConfigLua = ''
-      require("tokyodark").setup({
-        transparent_background = false,
-        gamma = 1.0,
+      vim.api.nvim_create_autocmd("Signal", {
+        pattern = "SIGUSR1",
+        callback = function()
+          local ok = pcall(dofile, vim.fn.expand("~/.cache/matugen/nixvim-theme.lua"))
+          if ok then
+            vim.notify("matugen theme reloaded", vim.log.levels.INFO)
+          end
+        end,
       })
 
-      vim.cmd.colorscheme("tokyodark")
-
-        vim.api.nvim_set_hl(0, "Normal", { bg = "#0c0d15", fg = "#a0a8cd" })
-        vim.api.nvim_set_hl(0, "NormalNC", { bg = "#0c0d15" })
-        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#0c0d15" })
-        vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#0c0d15", fg = "#a0a8cd" })
-        vim.api.nvim_set_hl(0, "StatusLine", { bg = "#0c0d15", fg = "#a0a8cd" })
-        vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#0c0d15", fg = "#212234" })
-        vim.api.nvim_set_hl(0, "VertSplit", { bg = "#0c0d15", fg = "#212234" })
-        vim.api.nvim_set_hl(0, "SignColumn", { bg = "#0c0d15" })
-        vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#0c0d15" })
-        vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20"
-        vim.api.nvim_set_hl(0, "Comment", { fg = "#7a80a0", italic = true })
+      local theme_path = vim.fn.expand("~/.cache/matugen/nixvim-theme.lua")
+      if vim.fn.filereadable(theme_path) == 1 then
+        dofile(theme_path)
+      else
+        vim.notify("matugen theme not found at " .. theme_path, vim.log.levels.WARN)
+      end
     '';
   };
 }

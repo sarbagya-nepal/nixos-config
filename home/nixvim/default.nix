@@ -16,8 +16,5 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    extraConfigLua = ''
-      require('vim._core.ui2').enable({})
-    '';
   };
 }

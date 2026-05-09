@@ -26,5 +26,10 @@
     python3
     nwg-look
     tokyonight-gtk-theme
+    imagemagick
+    bc
+    jq
+    matugen
+    firefox
   ];
 }

@@ -13,24 +13,24 @@ in
     colorScheme = "custom";
 
     customColorScheme = {
-      main               = "0c0d15";
-      text               = "a0a8cd";
-      subtext            = "565f89";
+      main               = "e6dfd5";
+      text               = "2a2623";
+      subtext            = "6e655d";
 
-      accent             = "7199ee";
-      accent-active      = "7199ee";
-      accent-inactive    = "212234";
+      accent             = "7d8fa6";
+      accent-active      = "7d8fa6";
+      accent-inactive    = "c8c0b5";
 
-      highlight          = "06080a";
-      banner             = "ee6d85";
+      highlight          = "f0ebe3";
+      banner             = "9a8ca5";
 
-      border-active      = "a0a8cd";
-      border-inactive    = "212234";
+      border-active      = "bdb4aa";
+      border-inactive    = "d6cec3";
 
-      header             = "a485dd";
+      header             = "ebe5dc";
 
-      notification       = "38a89d";
-      notification-error = "ee6d85";
+      notification       = "7f9c96";
+      notification-error = "b86c6c";
     };
 
     enabledCustomApps = with spicePkgs.apps; [
